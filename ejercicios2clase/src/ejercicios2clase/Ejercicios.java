@@ -1,5 +1,6 @@
 package ejercicios2clase;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Ejercicios {
@@ -209,49 +210,130 @@ public class Ejercicios {
 		}
 		sc.close();
 	}
+
 	public static void ejercicio11() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduzca un número ");
 		int n1 = sc.nextInt();
 		System.out.println("Introduzca otro número ");
 		int n2 = sc.nextInt();
-	       boolean salir = false;
-	        
-	       while(!salir){
-	            
-	           System.out.println("1. Suma");
-	           System.out.println("2. Resta");
-	           System.out.println("3. Multiplicación");
-	           System.out.println("4. División");
-	            
-	           System.out.println("Escribe una de las opciones");
-	           int opcion = sc.nextInt();
-	            
-	           switch(opcion){
-	               case 1:
-	                   System.out.println(n1 + n2);
-	                   salir=true;
-	                   break;
-	               case 2:
-	                   System.out.println(n1 - n2);
-	                   salir=true;
-	                   break;
-	                case 3:
-	                   System.out.println(n1 * n2);
-	                   salir=true;
-	                   break;
-	                case 4:
-	                	System.out.println(n2 == 0? "El divisor no puede ser 0":(n1 / n2));
-	                   salir=true;
-	                   break;
-	                default:
-	                   System.out.println("Solo números entre 1 y 4");
-	           }
-	            
-	       }
-	       sc.close();
-	    }
-		
+
+		System.out.println("1. Suma");
+		System.out.println("2. Resta");
+		System.out.println("3. Multiplicación");
+		System.out.println("4. División");
+
+		System.out.println("Escribe una de las opciones");
+		int opcion = sc.nextInt();
+
+		switch (opcion) {
+		case 1:
+			System.out.println(n1 + n2);
+			break;
+		case 2:
+			System.out.println(n1 - n2);
+			break;
+		case 3:
+			System.out.println(n1 * n2);
+			break;
+		case 4:
+			System.out.println(n2 == 0 ? "El divisor no puede ser 0" : (n1 / n2));
+			break;
+		default:
+			System.out.println("Solo números entre 1 y 4");
+		}
+
+		sc.close();
+	}
+
+	public static void ejercicio12() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca su edad:");
+		int edad = sc.nextInt();
+		sc.nextLine();// para quitar los espacios de edad
+		double precio = 50;
+		if (edad > 17 && edad < 66) {
+			System.out.println("Es usted socio?");
+			String socio = sc.nextLine();
+			if (socio.equals("sí")) {
+				System.out.println("Se le ha aplicado un descuento de 40% por ser socio");
+				System.out.println("El nuevo precio es: " + (precio - (precio * 0.40)));
+			} else if (socio.equals("no")) {
+				System.out.println("Se le ha aplicado un descuento de 25% por ser menor de edad");
+				System.out.println("El nuevo precio es: " + (precio - (precio * 0.25)));
+			}
+
+		} else if (edad > 65) {
+			System.out.println("Se le ha aplicado un descuento de 75% por estar jubilado");
+			System.out.println("El nuevo precio es: " + (precio - (precio * 0.75)));
+		}
+		sc.close();
+	}
+
+	public static void ejercicio13() {
+		int n = 20;
+		while (n > 0) {
+			System.out.println(n);
+			n--;
+		}
+	}
+
+	public static void ejercicio13b() {
+		for (int i = 20; i > 0; i--) {
+			System.out.println(i);
+		}
+	}
+
+	public static void ejercicio14() {
+		Scanner sc = new Scanner(System.in);
+		int inicio = 0;
+		int num;
+		do {
+			System.out.println("Introduce un número entero:");
+			num = (sc.nextInt() + inicio);
+		} while (num != 0);
+		if (num == 0) {
+			System.out.println("Has acertado");
+		} else if (num !=0) {
+			System.out.println("Te has equibocado");
+		} 
+
+	}
+
+	public static void ejerciciobucle() {
+		Scanner sc = new Scanner(System.in);
+		// Generamos número aleatorio entre 1 y 10
+		int adivina = new Random().nextInt(10) + 1;
+		int intentos = 0;
+		int num;
+		do {
+			System.out.print("Adivina el número del 1 al 10: ");
+			num = sc.nextInt();
+			intentos++;
+		} while (adivina != num && intentos < 3);
+		if (adivina == num) {
+			System.out.println("Has acertado!");
+		} else {
+			System.out.println("Has fallado!");
+		}
+	}
+	public static void whileigualdowhile() {
+		Scanner sc = new Scanner(System.in);
+		// Generamos número aleatorio entre 1 y 10
+		int adivina = new Random().nextInt(10) + 1;
+		int intentos = 0;
+		int num=-1;
+		while (adivina != num && intentos < 3){
+			System.out.print("Adivina el número del 1 al 10: ");
+			num = sc.nextInt();
+			intentos++;
+		} 
+		if (adivina == num) {
+			System.out.println("Has acertado!");
+		} else {
+			System.out.println("Has fallado!");
+		}
+	}
 	public static void main(String[] args) {
 		// ejercicio1();
 		// ejercicio2();
@@ -262,7 +344,13 @@ public class Ejercicios {
 		// ejercicio8();
 		// ejercicio9();
 		// ejercicio10();
-		ejercicio11();
+		// ejercicio11();
+		// ejercicio12();
+		// ejercicio13();
+		// ejercicio13b();
+		 ejercicio14();
+		// ejerciciobucle();
+		// whileigualdowhile();
 	}
 
 }
