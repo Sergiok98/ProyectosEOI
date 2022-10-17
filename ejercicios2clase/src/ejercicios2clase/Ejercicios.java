@@ -286,18 +286,14 @@ public class Ejercicios {
 
 	public static void ejercicio14() {
 		Scanner sc = new Scanner(System.in);
-		int inicio = 0;
-		int num;
-		do {
-			System.out.println("Introduce un número entero:");
-			num = (sc.nextInt() + inicio);
-		} while (num != 0);
-		if (num == 0) {
-			System.out.println("Has acertado");
-		} else if (num !=0) {
-			System.out.println("Te has equibocado");
-		} 
-
+		int suma = 0;
+		int numero = -1;
+		do {			
+			System.out.print("Introduzca un número (acumulado " + suma + "): ");
+			numero = sc.nextInt();
+			suma += numero;
+		}while(numero!=0);
+		System.out.println("El total ha sido " + suma);
 	}
 
 	public static void ejerciciobucle() {
@@ -334,6 +330,67 @@ public class Ejercicios {
 			System.out.println("Has fallado!");
 		}
 	}
+	public static void ejercicio20() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Dime un numero: ");
+		int n = sc.nextInt();
+		
+		while (n % 10 !=0) {
+		System.out.println(n % 10);
+		}
+	}
+	public static void ejercicio15() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca un número:");
+		int num = sc.nextInt();
+		int contador = 0;
+		while (num > 0) {
+			num = num/10;
+			contador++;
+		}
+		System.out.println("El número tiene "+ contador + " dígitos");
+	}
+	public static void ejercicio16() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca un número:");
+		int num = sc.nextInt();
+		for (int i = 0; i < num; i++) {
+			System.out.println("*");
+		}
+	}
+	public static void ejercicio17() {
+		for (int i = 0; i < 31; i++) {
+			if (i%3 !=0) {
+				System.out.println(i);
+			}
+		}
+	}
+	public static void ejercicio18() {
+		for (int i = 0; i < 101; i++) {
+			if (i%5 ==0) {
+				System.out.println(i);
+			}
+		}
+	}
+	public static void ejercicio19() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduzca un número:");
+		int num = sc.nextInt();
+		for (int i = 1; i <= num; i++) {
+			System.out.print(i);
+			if (i<num) {
+				System.out.print(",");
+			}
+		}
+	}
+	public static void ejercicio23() {
+		for(int i = 9; i >= 1; i--) {
+			for(int j = 1; j <= i; j++) {
+				System.out.print(j);
+			}
+			System.out.println();
+		}
+	}
 	public static void main(String[] args) {
 		// ejercicio1();
 		// ejercicio2();
@@ -348,9 +405,16 @@ public class Ejercicios {
 		// ejercicio12();
 		// ejercicio13();
 		// ejercicio13b();
-		 ejercicio14();
+		// ejercicio14();
 		// ejerciciobucle();
 		// whileigualdowhile();
+		// ejercicio14();
+		// ejercicio15();
+		// ejercicio16();
+		// ejercicio17();
+		// ejercicio18();
+		// ejercicio19();
+		ejercicio23();
 	}
 
 }
